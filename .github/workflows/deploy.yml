@@ -1,0 +1,30 @@
+name: Deploy to Railway
+
+on:
+  workflow_dispatch:
+    inputs:
+      service_name:
+        description: 'Service name to deploy'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22.20.0'
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway
+        run: railway up --service ${{ inputs.service_name }} --ci --detach
+        env:
+          # Project-scoped Railway token
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
