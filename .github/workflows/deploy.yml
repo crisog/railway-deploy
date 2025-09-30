@@ -21,7 +21,7 @@ jobs:
           node-version: '22.20.0'
 
       - name: Install Railway CLI
-        run: npm install -g @railway/cli
+        run: npm install -g @railway/cli@^4.1.0
 
       - name: Deploy to Railway
         run: railway up --service ${{ inputs.service_name }} --ci --detach
