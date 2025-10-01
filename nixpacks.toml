@@ -1,0 +1,13 @@
+[phases.install]
+cmds = [
+  "npm ci --prefix server"
+]
+
+[phases.build]
+cmds = [
+  "npm run build --prefix server",
+  "npm run sync:uploads --prefix server"
+]
+
+[start]
+cmd = "npm run start:prod --prefix server"

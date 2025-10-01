@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js --external:pg",
+    "start": "node dist/index.js",
+    "start:prod": "node dist/index.js",
+    "sync:uploads": "echo 'Syncing uploads directory...'"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.5",
+    "hono": "^4.9.9",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/pg": "8.15.5",
+    "esbuild": "^0.25.10",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
