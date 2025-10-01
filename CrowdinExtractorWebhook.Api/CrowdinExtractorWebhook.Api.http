@@ -1,0 +1,6 @@
+@CrowdinExtractorWebhook.Api_HostAddress = http://localhost:5010
+
+GET {{CrowdinExtractorWebhook.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
